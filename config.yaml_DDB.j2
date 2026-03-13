@@ -1,0 +1,21 @@
+source:
+  type: dynamodb
+  table: "${project}-${table_name}"
+  region: "${aws_region}"
+
+target:
+  type: dynamodb
+  table: "${project}-${table_name}"
+  streamChanges: true
+  region: local
+  endpoint:
+    host: http://${private_ip}
+    port: 8000
+  credentials:
+    accessKey: foo
+    secretKey: foo
+
+savepoints:
+  path: /app/savepoints
+  intervalSeconds: 300
+  enableParquetFileTracking: true

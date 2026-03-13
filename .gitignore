@@ -77,3 +77,6 @@ outputs/
 # Test files
 test-results/
 .nyc_output/
+
+# Terraform
+.terraform*
